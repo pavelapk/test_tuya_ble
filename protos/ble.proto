@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+package ble_package; // Replace with your package name
+
+message QueryRequest {
+  string message = 1;
+}
+
+// Define a gRPC service
+service MyService {
+  // The "query" endpoint that accepts a message and returns nothing
+  rpc query(QueryRequest) returns (google.protobuf.Empty);
+}

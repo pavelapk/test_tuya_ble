@@ -722,7 +722,7 @@ class TuyaBLEDevice:
         return result
 
     @staticmethod
-    def _unpack_int(data: bytes, start_pos: int) -> tuple(int, int):
+    def _unpack_int(data: bytes, start_pos: int) -> tuple[int, int]:
         result: int = 0
         offset: int = 0
         while offset < 5:
@@ -747,7 +747,8 @@ class TuyaBLEDevice:
             response_to: int = 0,
     ) -> list[bytes]:
         key: bytes
-        iv = secrets.token_bytes(16)
+        # iv = secrets.token_bytes(16)
+        iv = bytes([i for i in range(16)])
         security_flag: bytes
         if code == TuyaBLECode.FUN_SENDER_DEVICE_INFO:
             key = self._login_key

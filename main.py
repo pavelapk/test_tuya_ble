@@ -125,6 +125,7 @@ async def main():
 
     try:
         while True:
+            break
             print("wait")
             query = await query_queue.get()
             print("receive")
